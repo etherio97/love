@@ -48,7 +48,20 @@
       <div class="console-underscore" id="console">&#95;</div>
     </div>
 
+    <audio id="audio" src="audio.mp3"></audio>
+
     <script>
+      (()=>{
+        var audioEl = document.getElementById('audio');
+        var canvasEl = document.getElementById('heart');
+        var isPlayed = false;
+        canvasEl.addEventListener('click', ()=>{
+          if (isPlayed) return;
+          isPlayed = true;
+          audioEl.play();
+        });
+      })();
+
       // function([string1, string2],target id,[color1,color2])
       setTimeout(
         () =>
@@ -57,7 +70,7 @@
             'text',
             ['tomato', 'pink', 'lightblue']
           ),
-        2000
+        4000
       );
 
       function consoleText(words, id, colors) {
